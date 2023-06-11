@@ -11,6 +11,12 @@ module.exports = router;
 
 /**
  * @swagger
+ * tags:
+ *   name: Users
+ */
+
+/**
+ * @swagger
  * /users/top-buyers:
  *   get:
  *     summary: Get top buyers

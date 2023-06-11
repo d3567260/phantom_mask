@@ -26,6 +26,65 @@ components:
           id: 1
           name: fake name
           cash_balance: 191.83
+    Mask:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the mask.
+        name:
+          type: string
+          description: The name of the mask.
+        price:
+          type: number
+          format: float
+          description: The price of the mask.
+        pharmacy_id:
+          type: integer
+          description: The ID of the pharmacy selling the mask.
+    OpeningHour:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the opening hour.
+        pharmacy_id:
+          type: integer
+          description: The ID of the pharmacy.
+        day_of_week:
+          type: string
+          description: The day of the week.
+        opening_time:
+          type: string
+          format: time
+          description: The opening time.
+        closing_time:
+          type: string
+          format: time
+          description: The closing time.
+    Pharmacy:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: The ID of the pharmacy.
+        name:
+          type: string
+          description: The name of the pharmacy.
+        cash_balance:
+          type: number
+          format: float
+          description: The cash balance of the pharmacy.
+        OpeningHours:
+          type: array
+          description: The opening hours of the pharmacy.
+          items:
+            $ref: '#/components/schemas/OpeningHour'
+        Masks:
+          type: array
+          description: The masks sold by the pharmacy.
+          items:
+            $ref: '#/components/schemas/Mask'
     Error:
       type: object
       properties:
