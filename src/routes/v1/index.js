@@ -1,5 +1,6 @@
 const express = require('express');
 const userRoute = require('./user.route');
+const pharmacyRoute = require('./pharmacy.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -9,6 +10,10 @@ const defaultRoutes = [
   {
     path: '/users',
     route: userRoute
+  },
+  {
+    path: '/pharmacies',
+    route: pharmacyRoute
   }
 ];
 
