@@ -1,0 +1,45 @@
+components:
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        cash_balance:
+          type: number
+      example:
+        id: 1
+        name: fake name
+        cash_balance: 191.83
+    TopBuyer:
+      type: object
+      properties:
+        total_transaction_amount:
+          type: number
+        User:
+          $ref: '#/components/schemas/User'
+      example:
+        total_transaction_amount: 135.83
+        User:
+          id: 1
+          name: fake name
+          cash_balance: 191.83
+    Error:
+      type: object
+      properties:
+        code:
+          type: number
+        message:
+          type: string
+  responses:
+    NotFound:
+      description: Not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+          example:
+            code: 404
+            message: Not found
